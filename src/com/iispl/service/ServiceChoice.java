@@ -24,11 +24,10 @@ public class ServiceChoice {
 			
 			switch(choice) {
 			case 1:
-                // createAccount() reads from Scanner and returns Account object
-                Account newAccount = accountService.createAccount();
-                // Store it in BankOperationsImpl's ArrayList
-                bankOps.storeAcc(newAccount);
-                break;
+			    List<Account> existingAccounts = bankOps.retrieveAcc(); // fetch current list
+			    Account newAccount = accountService.createAccount(existingAccounts); // pass for duplicate check
+			    bankOps.storeAcc(newAccount);
+			    break;
 
             case 2:
                 List<Account> allAccounts = bankOps.retrieveAcc();
@@ -38,21 +37,21 @@ public class ServiceChoice {
                     accountService.displayAllAccounts(allAccounts);
                 break;
             	
-//            case 3:
-//                List<Account> activeList = bankOps.retrieveAcc();
-//                if (activeList.isEmpty())
-//                    System.out.println("No accounts found.\n");
-//                else
-//                    accountService.displayActiveAccounts(activeList);
-//                break;
-//
-//            case 4:
-//                List<Account> savingsList = bankOps.retrieveAcc();
-//                if (savingsList.isEmpty())
-//                    System.out.println("No accounts found.\n");
-//                else
-//                    accountService.displaySavingsAccounts(savingsList);
-//                break;
+            case 3:
+                List<Account> activeList = bankOps.retrieveAcc();
+                if (activeList.isEmpty())
+                    System.out.println("No accounts found.\n");
+                else
+                    accountService.displayActiveAccounts(activeList);
+                break;
+
+            case 4:
+                List<Account> savingsList = bankOps.retrieveAcc();
+                if (savingsList.isEmpty())
+                    System.out.println("No accounts found.\n");
+                else
+                    accountService.displaySavingsAccounts(savingsList);
+                break;
 
             	
             	default:
