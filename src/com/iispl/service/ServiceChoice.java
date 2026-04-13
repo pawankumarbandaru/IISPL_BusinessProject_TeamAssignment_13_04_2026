@@ -1,8 +1,6 @@
 package com.iispl.service;
 
-import java.util.List;
 import java.util.Scanner;
-
 import com.iispl.entity.Account;
 import com.iispl.repository.BankOperationsImpl;
 
@@ -65,7 +63,8 @@ public class ServiceChoice {
 		}while(yourChoice == 'y' || yourChoice == 'Y');
 	}
 
-	public static void chooseTransactionService(Scanner sc) {
+
+    public static void chooseTransactionService(Scanner sc) {
         char yourChoice;
 
         TransactionServiceImpl txnService = new TransactionServiceImpl();
@@ -107,4 +106,3 @@ public class ServiceChoice {
 	}
 }
 	
-

@@ -1,12 +1,10 @@
-
 package com.iispl.repository;
 
+import com.iispl.entity.Transaction;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import com.iispl.entity.Account;
-import com.iispl.entity.Transaction;
 
 
 public class BankOperationsImpl implements BankOperations{
@@ -26,17 +24,6 @@ public class BankOperationsImpl implements BankOperations{
 		return accountList;
 	}
 
-	@Override
-	public void updateAcc() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAcc() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
     public void storeTxn(Transaction transaction) {
@@ -70,4 +57,3 @@ public class BankOperationsImpl implements BankOperations{
         return false;
     }
 }
-

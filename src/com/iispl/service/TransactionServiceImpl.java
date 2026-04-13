@@ -1,11 +1,11 @@
 package com.iispl.service;
+
+import com.iispl.entity.Transaction;
+import com.iispl.repository.BankOperationsImpl;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import com.iispl.entity.Transaction;
-import com.iispl.repository.BankOperationsImpl;
 
 public class TransactionServiceImpl implements TransactionService {
 
