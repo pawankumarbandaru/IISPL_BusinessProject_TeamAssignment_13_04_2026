@@ -1,18 +1,16 @@
-
 package com.iispl.repository;
 
+import com.iispl.entity.Transaction;
 import java.util.List;
 
-import com.iispl.entity.Account;
-
 public interface BankOperations {
-	public void storeAcc(Account account);
-	public List<Account> retrieveAcc();
-	public void updateAcc();
-	public void deleteAcc();
-	
-	public void storeTxn();
-	public void retrieveTxn();
-	public void updateTxn();
-	public void deleteTxn();
+
+    public void storeAcc();
+    public void retrieveAcc();
+    public void updateAcc();
+    public void deleteAcc();
+
+    public void storeTxn(Transaction transaction);
+    public List<Transaction> retrieveTxn();
+    public void deleteTxn(String transactionId);
 }

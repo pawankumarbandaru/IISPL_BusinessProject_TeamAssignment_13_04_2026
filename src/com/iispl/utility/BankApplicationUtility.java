@@ -1,16 +1,11 @@
 package com.iispl.utility;
 
 import java.util.Scanner;
-
-import com.iispl.repository.BankOperationsImpl;
-import com.iispl.service.AccountService;
 import com.iispl.service.ServiceChoice;
 
 public class BankApplicationUtility {
 	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
-		
 		char yourChoice;
 		
 		do {
@@ -34,9 +29,8 @@ public class BankApplicationUtility {
         }
 
 			
-			System.out.println("Do you want to Bank Application Menu again?(Y/N)");
+			System.out.println("Do you want to login again?(Y/N)");
 			yourChoice = sc.next().charAt(0);
 		}while(yourChoice == 'y' || yourChoice == 'Y');
-		System.out.println("Please, visit again!!!");
 	}
 }
