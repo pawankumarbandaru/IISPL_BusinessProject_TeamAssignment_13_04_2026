@@ -29,8 +29,9 @@ public class BankApplicationUtility {
         }
 
 			
-			System.out.println("Do you want to login again?(Y/N)");
+			System.out.println("Do you want to Bank Application Menu again?(Y/N)");
 			yourChoice = sc.next().charAt(0);
 		}while(yourChoice == 'y' || yourChoice == 'Y');
+		System.out.println("Please, visit again!!!");
 	}
 }
