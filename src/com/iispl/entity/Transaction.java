@@ -1,28 +1,31 @@
+
 package com.iispl.entity;
+
+import java.math.BigDecimal;
 
 public final class Transaction {
 
     private final String transactionId;
     private final String fromAccount;   
     private final String toAccount;     
-    private final double amount;
+    private final BigDecimal amount;
     private final String channel;       
     private final String status;        
 
     public Transaction(String transactionId,
                        String fromAccount,
                        String toAccount,
-                       double amount,
+                       BigDecimal amount,
                        String channel,
                        String status) {
 
         if (transactionId == null || transactionId.isBlank()) {
             throw new IllegalArgumentException("Transaction ID cannot be null or blank.");
         }
-        if (amount < 0) {
+        if (amount.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("Transaction amount cannot be negative.");
         }
-
+        
         this.transactionId = transactionId;
         this.fromAccount   = fromAccount;
         this.toAccount     = toAccount;
@@ -34,7 +37,7 @@ public final class Transaction {
     public String getTransactionId() { return transactionId; }
     public String getFromAccount()   { return fromAccount;   }
     public String getToAccount()     { return toAccount;     }
-    public double getAmount()        { return amount;        }
+    public BigDecimal getAmount()        { return amount;        }
     public String getChannel()       { return channel;       }
     public String getStatus()        { return status;        }
 
