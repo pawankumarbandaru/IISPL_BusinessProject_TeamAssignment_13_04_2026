@@ -1,8 +1,12 @@
 package com.iispl.repository;
 
+import java.util.List;
+
+import com.iispl.entity.Account;
+
 public interface BankOperations {
-	public void storeAcc();
-	public void retrieveAcc();
+	public void storeAcc(Account account);
+	public List<Account> retrieveAcc();
 	public void updateAcc();
 	public void deleteAcc();
 	
