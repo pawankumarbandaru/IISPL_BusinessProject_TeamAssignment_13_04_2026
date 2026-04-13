@@ -8,12 +8,13 @@ import com.iispl.enums.AccountType;
 
 public class AccountServiceImpl implements AccountService {
 
-    Scanner sc=new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
     @Override
     public Account createAccount(List<Account> existingAccounts) {
 
         String accountNumber;
+
         // Duplicate account number validation
         while (true) {
             System.out.println("Enter Account Number:");
@@ -30,13 +31,14 @@ public class AccountServiceImpl implements AccountService {
             if (isDuplicate) {
                 System.out.println("Account Number already exists! Please enter a different Account Number.");
             } else {
-                break; // unique account number, proceed
+                break;
             }
         }
 
         System.out.println("Enter Holder Name:");
         String holderName = sc.next();
 
+        // Account Type validation
         System.out.println("Enter Account Type (SAVINGS / CURRENT):");
         AccountType accountType = null;
         while (accountType == null) {
@@ -47,18 +49,19 @@ public class AccountServiceImpl implements AccountService {
             }
         }
 
-        // Negative balance validation
+        // Balance validation
         long balance = 0;
         while (true) {
             System.out.println("Please Enter Balance:");
             balance = sc.nextLong();
             if (balance < 1) {
-                System.out.println("!Invalid Balance");
+                System.out.println("Invalid Balance! Must be greater than 0.");
             } else {
-                break; // valid balance, proceed
+                break;
             }
         }
 
+        // Account Status validation
         System.out.println("Enter Account Status (ACTIVE / INACTIVE):");
         AccountStatus accountStatus = null;
         while (accountStatus == null) {
@@ -76,6 +79,7 @@ public class AccountServiceImpl implements AccountService {
     public void displayAllAccounts(List<Account> accountList) {
         System.out.println("\n===== All Accounts =====");
         int index = 1;
+
         for (Account account : accountList) {
             System.out.println("---- Account " + index + " ----");
             System.out.println(account);
@@ -89,6 +93,7 @@ public class AccountServiceImpl implements AccountService {
         System.out.println("\n===== Savings Accounts =====");
         int index = 1;
         boolean found = false;
+
         for (Account account : accountList) {
             if (account.getAccountType() == AccountType.SAVINGS) {
                 System.out.println("---- Account " + index + " ----");
@@ -98,7 +103,10 @@ public class AccountServiceImpl implements AccountService {
                 found = true;
             }
         }
-        if (!found) System.out.println("No savings accounts found.\n");
+
+        if (!found) {
+            System.out.println("No savings accounts found.\n");
+        }
     }
 
     @Override
@@ -106,6 +114,7 @@ public class AccountServiceImpl implements AccountService {
         System.out.println("\n===== Active Accounts =====");
         int index = 1;
         boolean found = false;
+
         for (Account account : accountList) {
             if (account.getAccountStatus() == AccountStatus.ACTIVE) {
                 System.out.println("---- Account " + index + " ----");
@@ -115,6 +124,9 @@ public class AccountServiceImpl implements AccountService {
                 found = true;
             }
         }
-        if (!found) System.out.println("No active accounts found.\n");
+
+        if (!found) {
+            System.out.println("No active accounts found.\n");
+        }
     }
 }
