@@ -1,32 +1,31 @@
 package com.iispl.repository;
 
 import com.iispl.entity.Transaction;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.iispl.entity.Account;
 
-public class BankOperationsImpl implements BankOperations {
 
-    private static final List<Transaction> transactionList = new ArrayList<>();
-
-    @Override
-    public void storeAcc() {
+public class BankOperationsImpl implements BankOperations{
+	
+	List<Account> accountList = new ArrayList<Account>();
+	private static final List<Transaction> transactionList = new ArrayList<>();
+	
+	@Override
+    public void storeAcc(Account account) {
+        accountList.add(account);
+        System.out.println("✔ Account added successfully!\n");
     }
 
-    @Override
-    public void retrieveAcc() {
-    }
+	@Override
+	public List<Account> retrieveAcc() {
+		// TODO Auto-generated method stub
+		return accountList;
+	}
 
-    @Override
-    public void updateAcc() {
-    }
 
-    @Override
-    public void deleteAcc() {
-    }
-
-    @Override
+	@Override
     public void storeTxn(Transaction transaction) {
     	transactionList.add(transaction);
     }
@@ -47,6 +46,7 @@ public class BankOperationsImpl implements BankOperations {
             System.out.println("Transaction ID " + transactionId + " not found.");
         }
     }
+
 
     public boolean isDuplicateId(String transactionId) {
         for (Transaction t : transactionList) {

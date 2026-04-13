@@ -18,4 +18,5 @@ public interface TransactionService {
     List<Transaction> getAllTransactions();
 
     List<Transaction> getTransactionsByAccountID(String accountNumber);
+
 }
