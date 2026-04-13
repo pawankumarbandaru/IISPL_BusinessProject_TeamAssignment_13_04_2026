@@ -7,6 +7,7 @@ public class ServiceChoice {
 		char yourChoice;
 		
 		do {
+			System.out.println("\nAccount Service Menu:");
 			System.out.println("1. Add Account"
 					+ "\n2. Display All Accounts"
 					+ "\n3. Display Only Active Accounts"
@@ -39,7 +40,7 @@ public class ServiceChoice {
             		System.out.println("Invalid choice!");
 			}
 			
-			System.out.println("Do you want to login again?(Y/N)");
+			System.out.println("Do you want to visit again?(Y/N)");
 			yourChoice = sc.next().charAt(0);
 		
 		}while(yourChoice == 'y' || yourChoice == 'Y');
@@ -49,6 +50,7 @@ public class ServiceChoice {
 			char yourChoice;
 			
 			do {
+				System.out.println("\nTransaction Service Menu:");
 				System.out.println("1. Add Transaction"
 						+ "\n2. Display All Transactions"
 						+ "\n3. Display Only High-Value Transactions"
@@ -81,7 +83,7 @@ public class ServiceChoice {
 		                System.out.println("Invalid choice!");
 				}
 				
-			System.out.println("Do you want to login again?(Y/N)");
+			System.out.println("Do you want to visit again?(Y/N)");
 			yourChoice = sc.next().charAt(0);
 		
 		}while(yourChoice == 'y' || yourChoice == 'Y');
