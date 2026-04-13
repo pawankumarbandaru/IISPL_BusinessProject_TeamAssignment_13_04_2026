@@ -2,13 +2,16 @@ package com.iispl.service;
 
 import java.util.List;
 import java.util.Scanner;
-
+import com.iispl.entity.Transaction;
 import com.iispl.entity.Account;
 import com.iispl.repository.BankOperationsImpl;
+import java.util.ArrayList;
 
 public class ServiceChoice {
-	private static BankOperationsImpl bankOps           = new BankOperationsImpl();
-    private static AccountService     accountService;
+
+  private static BankOperationsImpl bankOps           = new BankOperationsImpl();
+  private static AccountService     accountService;
+  
 	public static void chooseAccountService(Scanner sc) {
 		accountService = new AccountServiceImpl();
 		
@@ -53,7 +56,6 @@ public class ServiceChoice {
                 else
                     accountService.displaySavingsAccounts(savingsList);
                 break;
-
             	
             	default:
             		System.out.println("Invalid choice!");
