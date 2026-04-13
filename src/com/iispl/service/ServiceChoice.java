@@ -2,19 +2,23 @@ package com.iispl.service;
 
 import java.util.List;
 import java.util.Scanner;
-
+import com.iispl.entity.Transaction;
 import com.iispl.entity.Account;
 import com.iispl.repository.BankOperationsImpl;
+import java.util.ArrayList;
+
 
 public class ServiceChoice {
-	private static BankOperationsImpl bankOps           = new BankOperationsImpl();
-    private static AccountService     accountService;
+  private static BankOperationsImpl bankOps           = new BankOperationsImpl();
+  private static AccountService     accountService;
+  
 	public static void chooseAccountService(Scanner sc) {
 		accountService = new AccountServiceImpl();
 		
 		char yourChoice;
 		
 		do {
+			System.out.println("\nAccount Service Menu:");
 			System.out.println("1. Add Account"
 					+ "\n2. Display All Accounts"
 					+ "\n3. Display Only Active Accounts"
@@ -59,7 +63,7 @@ public class ServiceChoice {
             		System.out.println("Invalid choice!");
 			}
 			
-			System.out.println("Do you want to login again?(Y/N)");
+			System.out.println("Do you want to visit again?(Y/N)");
 			yourChoice = sc.next().charAt(0);
 		
 		}while(yourChoice == 'y' || yourChoice == 'Y');
@@ -69,6 +73,7 @@ public class ServiceChoice {
 			char yourChoice;
 			
 			do {
+				System.out.println("\nTransaction Service Menu:");
 				System.out.println("1. Add Transaction"
 						+ "\n2. Display All Transactions"
 						+ "\n3. Display Only High-Value Transactions"
@@ -101,12 +106,10 @@ public class ServiceChoice {
 		                System.out.println("Invalid choice!");
 				}
 				
-			System.out.println("Do you want to login again?(Y/N)");
+			System.out.println("Do you want to visit again?(Y/N)");
 			yourChoice = sc.next().charAt(0);
 		
 		}while(yourChoice == 'y' || yourChoice == 'Y');
 	}	
 }
-	
-	
 	
